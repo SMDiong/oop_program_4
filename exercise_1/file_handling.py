@@ -2,6 +2,11 @@
 # BSCPE 1-2
 
 # Word Format and Text to Speech
+import pyttsx3
+text_to_speech = pyttsx3.init()
+voices = text_to_speech.getProperty('voices')
+text_to_speech.setProperty('voice', voices[1].id)
+text_to_speech.setProperty('rate', 150)
 green = "\033[0;32m"
 
 # Create a text file that contain 20 integers, name it numbers.txt
@@ -23,4 +28,9 @@ with open('odd.txt', 'w') as odd_file:
         odd_file.write(str(num) + '\n')
 
 # Output Text
-print(green + "Files 'even.txt' and 'odd.txt' have been created successfully.")
+output_speech = "Text files 'even.txt' and 'odd.txt' have been created successfully."
+print('\n' + green + output_speech)
+text_to_speech.say(output_speech)
+text_to_speech.runAndWait()
+
+# End
