@@ -8,8 +8,9 @@ voices = text_to_speech.getProperty('voices')
 text_to_speech.setProperty('voice', voices[1].id)
 text_to_speech.setProperty('rate', 150)
 green = "\033[0;32m"
+blue = "\033[0;34m"
 
-# Create a text file that contain 20 integers, name it numbers.txt
+# Create a text file that contains 20 integers, name it numbers.txt then read it
 with open('numbers.txt', 'r') as numbers_file:
     integer = [int(line.strip()) for line in numbers_file]
 
@@ -29,7 +30,7 @@ with open('odd.txt', 'w') as odd_file:
 
 # Output Text
 output_speech = "Text files 'even.txt' and 'odd.txt' have been created successfully."
-print('\n' + green + output_speech)
+print(green + f"\n Text files {blue + 'even.txt' + green} and {blue + 'odd.txt' + green} have been created successfully.")
 text_to_speech.say(output_speech)
 text_to_speech.runAndWait()
 
