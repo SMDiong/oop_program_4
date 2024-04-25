@@ -9,14 +9,15 @@ with open('numbers.txt', 'r') as numbers_file:
 even_numbers = [num for num in integer if num % 2 == 0]
 odd_numbers = [num for num in integer if num % 2 != 0]
 
-# Create a code which create a text file that contains all even numbers from extracted number.txt, name it even.txt
+# Create a code which create a text file that contains all even numbers extracted from number.txt, name it even.txt
 with open('even.txt', 'w') as even_file:
     for num in even_numbers:
         even_file.write(str(num) + '\n')
 
-
 # Create a code which create a text file that contains all odd numbers extracted from number.txt, name it odd.txt
-
+with open('odd.txt', 'w') as odd_file:
+     for num in odd_numbers:
+        odd_file.write(str(num) + '\n')
 
 # Output Text
 print("Files 'even.txt' and 'odd.txt' have been created successfully.")
