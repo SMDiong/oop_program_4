@@ -6,7 +6,7 @@ import pyttsx3
 text_to_speech = pyttsx3.init()
 voices = text_to_speech.getProperty('voices')
 text_to_speech.setProperty('voice', voices[1].id)
-text_to_speech.setProperty('rate', 150)
+text_to_speech.setProperty('rate', 200)
 green = "\033[0;32m"
 blue = "\033[0;34m"
 
