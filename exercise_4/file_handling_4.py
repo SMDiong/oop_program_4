@@ -4,8 +4,18 @@
 # Create the source text file named integers.txt that contains 20 integers
 
 # Create the function that will create two separate text files extracted from integers.txt
+def even_odd_integers():
+    with open("integers.txt", "r") as source_file:
+        integers = [int(line.strip()) for line in source_file]
+    even_numbers = []
+    odd_numbers = []
 
 # Separate the odd and even numbers
+    for numbers in integers:
+        if numbers % 2 == 0:
+            even_numbers.append(numbers)
+        else:
+            odd_numbers.append(numbers)
 
 # Calculate the squares of even numbers then create and write it to double.txt
 
