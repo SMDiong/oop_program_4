@@ -18,7 +18,13 @@ def even_odd_integers():
             odd_numbers.append(numbers)
 
 # Calculate the squares of even numbers then create and write it to double.txt
+    with open("double.txt", "w") as double_file:
+        for num in even_numbers:
+            square = num ** 2
+            double_file.write(str(square) + "\n")
 
 # Calculate the cubes of odd numbers then create and write it to triple.txt
 
 # Call the function to create the files then an output message
+even_odd_integers()
+print("Text files 'double.txt' and 'triple.txt' have been created successfully.")
