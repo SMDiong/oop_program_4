@@ -3,12 +3,14 @@
 
 # Word Format and Text to Speech
 import pyttsx3
+
 text_to_speech = pyttsx3.init()
 voices = text_to_speech.getProperty('voices')
 text_to_speech.setProperty('voice', voices[1].id)
 text_to_speech.setProperty('rate', 200)
 green = "\033[0;32m"
 blue = "\033[0;34m"
+
 
 # Create a function to make a text file, name it mylife.txt. Open and write the text file
 def text_to_file():
@@ -24,10 +26,11 @@ def text_to_file():
                 break
             mylife_file.write(user_input + "\n")
 
+
 # Transfer the lines and make the text file
 text_to_file()
-output_speech = "Lines written in 'mylife.txt' has been added succesfully. The lines are..."
-print(green + f"\nLines written in {blue + 'mylife.txt' + green} has been added succesfully. The lines are...")
+output_speech = "Lines written in 'mylife.txt' has been added successfully. The lines are..."
+print(green + f"\nLines written in {blue + 'mylife.txt' + green} has been added successfully. The lines are...")
 text_to_speech.say(output_speech)
 text_to_speech.runAndWait()
 
