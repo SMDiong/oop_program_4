@@ -7,13 +7,28 @@ text_to_speech = pyttsx3.init()
 text_to_speech.setProperty('rate', 150)
 green = "\033[0;32m"
 blue = "\033[0;34m"
+red = "\033[0;31m"
 
 # Create the source text file named integers.txt that contains 20 integers
 
 # Create the function that will create two separate text files extracted from integers.txt
 def even_odd_integers():
-    with open("integers.txt", "r") as source_file:
-        integers = [int(line.strip()) for line in source_file]
+    try:
+        with open("integers.txt", "r") as source_file:
+            integers = [int(line.strip()) for line in source_file]
+
+# File Validation
+    except FileNotFoundError:
+        print(red + "\nThe file 'integers.txt' does not exist.")
+        text_to_speech.say("The file 'integers.txt' does not exist.")
+        text_to_speech.runAndWait()
+        exit(1)
+    except ValueError:
+        print(red + "\nThe file 'integers.txt' contains INVALID data.")
+        text_to_speech.say("The file 'integers.txt' contains invalid data.")
+        text_to_speech.runAndWait()
+        exit(1)
+
     even_numbers = []
     odd_numbers = []
 
