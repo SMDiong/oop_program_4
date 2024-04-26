@@ -7,14 +7,23 @@ text_to_speech = pyttsx3.init()
 text_to_speech.setProperty('rate', 150)
 green = "\033[0;32m"
 blue = "\033[0;34m"
+red = "\033[0;31m"
 
 # Create a text file that contains the name of 20 students with their GWA then open and read it
-with open('student_name_gwa.txt', 'r') as student_file:
-    lines = student_file.readlines()
+try:
+    with open('student_name_gwa.txt', 'r') as student_file:
+        lines = student_file.readlines()
+
+# File Validation
+except FileNotFoundError:
+    print(red + "\nThe file 'student_name_gwa.txt' does not exist.")
+    text_to_speech.say("The file 'student_name_gwa.txt' does not exist.")
+    text_to_speech.runAndWait()
+    exit(1)
 
 # Determine the highest GWA value
-    highest_gwa = 5.0
-    highest_gwa_student = ""
+highest_gwa = 5.0
+highest_gwa_student = ""
 
 # Separate the student's name and their GWA
 for line in lines:
