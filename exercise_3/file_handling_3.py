@@ -14,7 +14,7 @@ blue = "\033[0;34m"
 def text_to_file():
     with open("mylife.txt", "w") as mylife_file:
 
-# Ask the user what to write in the text file, then press ENTER when they are finished.
+        # Ask the user what to write in the text file, then press ENTER when they are finished.
         input_speech = "Enter a line of text or press ENTER to finish"
         text_to_speech.say(input_speech)
         text_to_speech.runAndWait()
@@ -26,7 +26,19 @@ def text_to_file():
 
 # Transfer the lines and make the text file
 text_to_file()
-output_speech = "Lines written in 'mylife.txt' has been added succesfully"
-print(green + f"\nLines written in {blue + 'mylife.txt' + green} has been added succesfully.")
+output_speech = "Lines written in 'mylife.txt' has been added succesfully. The lines are..."
+print(green + f"\nLines written in {blue + 'mylife.txt' + green} has been added succesfully. The lines are...")
 text_to_speech.say(output_speech)
 text_to_speech.runAndWait()
+
+# Open and read the file by Text to Speech
+with open("mylife.txt", "r") as speech_file:
+    lines = speech_file.readlines()
+
+# Also output the text written
+for line in lines:
+    print("\n" + blue + line.strip())
+    text_to_speech.say(line)
+    text_to_speech.runAndWait()
+
+# End
